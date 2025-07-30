@@ -27,7 +27,7 @@ const getLinkIcon = (linkname) => {
     return <DashboardIcon />;
   } else if (linkname === "IT Support") {
     return <ListAltIcon />;
-  } else if (linkname === "Approval History") {
+  } else if (linkname === "Approval Audit Log") {
     return <HistoryIcon />;
   } else if (linkname === "Support") {
     return <HelpIcon />;
