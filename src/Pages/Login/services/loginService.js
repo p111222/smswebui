@@ -169,8 +169,8 @@ export const getPage = (page) => {
     return "taskboard";
   } else if (page === "IT Support") {
     return "itsupport";
-  } else if (page === "Approval History") {
-    return "approvalhistory";
+  } else if (page === "Approval Audit Log") {
+    return "approvalauditlog";
   } else if (page === "Support") {
     return "support";
   } else if (page === "VA Creation") {

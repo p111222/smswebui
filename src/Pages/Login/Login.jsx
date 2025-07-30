@@ -34,8 +34,7 @@ const Login = () => {
 
     if (keycloak.authenticated) {
       const { payload } = decodeJWT(keycloak.token);
-      const sortedArr = ["Task Board","SMS Request","Approval History"];
-
+      const sortedArr = ["Task Board","SMS Request","Approval Audit Log"];
       console.log(payload);
       
 

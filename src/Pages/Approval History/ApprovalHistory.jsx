@@ -40,7 +40,7 @@ const ApprovalHistory = () => {
       >
         <CardContent>
           <PageTitle
-            titleText="Approval History"
+            titleText="Approval Audit Log"
             titleIcon={
               <HistoryIcon
                 style={{ color: "rgb(148,25,20)", fontSize: "25px" }}

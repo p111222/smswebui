@@ -158,7 +158,7 @@ function App() {
           element: <SmsRequest />,
         },
         {
-          path: "/smsweb/backofficeuser/approvalhistory",
+          path: "/smsweb/backofficeuser/approvalauditlog",
           element: <ApprovalHistory />,
         },
 

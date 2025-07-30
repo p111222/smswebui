@@ -123,7 +123,7 @@ export const backOfficeUser = [
   "Customer Onboarding",
   "VA Maintenance",
   "Reconciliation",
-  "Approval History",
+  "Approval Audit Log",
   "Support",
 ];
 
@@ -146,7 +146,7 @@ export const allPages = [
   "API Audit Log",
   "Reconciliation",
   "Branch Module for Cash and Cheque",
-  "Approval History",
+  "Approval Audit Log",
   "Support",
 ];
 
