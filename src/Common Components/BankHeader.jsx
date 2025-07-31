@@ -305,7 +305,7 @@ const BankHeader = () => {
           <img
             src={FederalBankLogo}
             alt="Federal Bank Logo"
-            className="w-28"
+            className="w-36"
           />
         </div>
 
@@ -327,7 +327,7 @@ const BankHeader = () => {
             {/* Elegant Logout Button */}
             <button 
               onClick={handleLogout}
-              className="border border-[rgb(100,15,10)] text-[rgb(100,15,10)] rounded-md px-3 py-1.5 flex items-center gap-1 hover:bg-[rgb(100,15,10)] hover:text-white transition-all duration-200"
+              className="border cursor-pointer border-[rgb(100,15,10)] text-[rgb(100,15,10)] rounded-md px-3 py-1.5 flex items-center gap-1 hover:bg-[rgb(100,15,10)] hover:text-white transition-all duration-200"
             >
               <LogoutIcon className="!text-xs" />
               <span className="text-sm">Logout</span>
