@@ -157,7 +157,7 @@ export const handleOtpSubmit = async (
 };
 
 export const getPage = (page) => {
-  if (page === "SMS Request") {
+  if (page === "SMS Opt-In/Out") {
     return "smsrequest";
   } else if (page === "VA Maintenance") {
     return "vamaintenance";

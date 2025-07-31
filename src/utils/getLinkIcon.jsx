@@ -10,11 +10,14 @@ import HelpIcon from "@mui/icons-material/Help";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import HistoryIcon from "@mui/icons-material/History";
 import InfoIcon from "@mui/icons-material/Info";
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import SmsIcon from '@mui/icons-material/Sms';
+import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 
 // Get Link Icon Function
 const getLinkIcon = (linkname) => {
-  if (linkname === "SMS Request") {
-    return <PersonAddAltIcon />;
+  if (linkname === "SMS Opt-In/Out") {
+    return <SmsIcon />;
   } else if (linkname === "VA Maintenance") {
     return <SettingsIcon />;
   } else if (linkname === "Reconciliation") {
@@ -22,13 +25,13 @@ const getLinkIcon = (linkname) => {
   } else if (linkname === "Branch Module for Cash and Cheque") {
     return <AccountBalanceIcon />;
   } else if (linkname === "Task Board") {
-    return <DashboardIcon />;
+    return <AssignmentIcon />;
   } else if (linkname === "Corporate Dashboard") {
     return <DashboardIcon />;
   } else if (linkname === "IT Support") {
     return <ListAltIcon />;
   } else if (linkname === "Approval Audit Log") {
-    return <HistoryIcon />;
+    return <BookmarkAddedIcon />;
   } else if (linkname === "Support") {
     return <HelpIcon />;
   } else if (linkname === "V Creation") {

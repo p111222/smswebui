@@ -99,7 +99,7 @@ const FileDropZone = ({
           />
           <div className="w-full text-2xl justify-center">
             <p className="text-center">
-              Drag and drop an text, csv, xlsx or click to upload
+              Drag and drop an pdf or click to upload
             </p>
           </div>
           <div htmlFor="fileUpload" className="flex items-center justify-center">
