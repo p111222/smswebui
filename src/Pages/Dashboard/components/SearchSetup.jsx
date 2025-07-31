@@ -44,7 +44,7 @@ const SearchSetup = ({ searchGridApi, setSearchGridApi }) => {
     >
       <CardContent>
         <p className="font-semibold text-lg bg-gray-200 text-black-800 px-3 py-[6px] rounded-full inline-block">
-          Approve Record Search
+          Approved Record Search
         </p>
         <SearchSetupForm
           startDate={startDate}

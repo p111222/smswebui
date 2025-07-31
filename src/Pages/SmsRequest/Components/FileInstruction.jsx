@@ -40,10 +40,8 @@ const FileInstruction = ({ showInstruction, setShowInstruction }) => {
             </div>
           </div>
           <div>
-            <p className=" text-gray-800"><span className="font-semibold">1.</span> Only 100 records are allowed.</p>
-            <p className=" text-gray-800"><span className="font-semibold">2.</span> Only text, csv and xlsx files are supported.</p>
-            <p className=" text-gray-800"><span className="font-semibold">3.</span> Download the sample file for reference. Before uploading, match the file header with the sample file.</p>
-            <p className=" text-gray-800"><span className="font-semibold">4.</span> After uploading the file, please enter the valid client code.</p>
+            <p className=" text-gray-800"><span className="font-semibold">2.</span> Only pdf file are supported.</p>
+            <p className=" text-gray-800"><span className="font-semibold">3.</span> Max: 10MB.</p>
           </div>
         </div>
       </div>
