@@ -4,6 +4,7 @@ import PageTitle from "../../../Common Components/PageTitle.jsx";
 import IosShareIcon from "@mui/icons-material/IosShare";
 import ClearAllIcon from "@mui/icons-material/ClearAll";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import AssignmentIcon from '@mui/icons-material/Assignment';
 import { AuthStore } from "../../../Store/authStore.jsx";
 import ExportModalComponent from "../../../Common Components/ExportModalComponent.jsx";
 import DatagridComponent from "../../../Common Components/DatagridComponent.jsx";
@@ -61,7 +62,7 @@ const PendingTasks = ({ pendingGridApi, setPendingGridApi }) => {
           <PageTitle
             titleText="Task Board"
             titleIcon={
-              <DashboardIcon
+              <AssignmentIcon
                 style={{ color: "rgb(148,25,20)", fontSize: "25px" }}
               />
             }

@@ -58,7 +58,7 @@ const BackOfficeLayout = () => {
         </div>
         {/* Links */}
         <div ref={appBarRef}>
-          <div className="">
+          {/* <div className=""> */}
             <div className="bg-gradient-to-b from-[#fbfbfb] to-[#d7d7d7] text-white py-2 px-5"
               // sx={{
               //   background: "rgb()",
@@ -93,7 +93,7 @@ const BackOfficeLayout = () => {
                 </div>
               </div>
             </div>
-          </div>
+          {/* </div> */}
         </div>
         {/* <div ref={bannerRef}>
           {location.pathname.includes("customeronboarding") && (
@@ -103,7 +103,7 @@ const BackOfficeLayout = () => {
       </div>
 
       {/* Pages */}
-      <div className="p-3 bg-stone-100">
+      <div className="min-h-lvh p-3 bg-stone-100">
         <Outlet />
       </div>
     </div>

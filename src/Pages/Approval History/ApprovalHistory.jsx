@@ -9,6 +9,7 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import HistoryIcon from "@mui/icons-material/History";
 import PageTitle from "../../Common Components/PageTitle";
 import { getColumnData } from "./services/getColumnData.jsx";
+import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 
 const ApprovalHistory = () => {
   const [gridApi, setGridApi] = useState(null);
@@ -42,7 +43,7 @@ const ApprovalHistory = () => {
           <PageTitle
             titleText="Approval Audit Log"
             titleIcon={
-              <HistoryIcon
+              <BookmarkAddedIcon
                 style={{ color: "rgb(148,25,20)", fontSize: "25px" }}
               />
             }

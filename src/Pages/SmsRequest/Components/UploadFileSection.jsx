@@ -36,7 +36,7 @@ const UploadFileSection = () => {
             <div>
                 <div className="flex items-center gap-2 my-3">
                     <p className="font-semibold text-lg bg-gray-200 text-black-800 px-3 py-[6px] rounded-full inline-block">
-                        Create New Virtual Accounts
+                        File Upload
                     </p>
                     <Tooltip onClick={() => setShowInstruction(true)} title="Instruction">
                         <div className="px-2 py-[5px] cursor-pointer bg-[rgb(0,78,150)] rounded-full">
@@ -53,7 +53,7 @@ const UploadFileSection = () => {
                             // fileTypes={["csv", "xls", "xlsx", "txt", "CSV", "XLS", "CLSX", "TXT"]}
                         />
                     </div>
-                    <Button
+                    {/* <Button
                         variant="outlined"
                         // onClick={handleDownloadSampleFile}
                         sx={{
@@ -64,7 +64,7 @@ const UploadFileSection = () => {
                         startIcon={<DownloadIcon />}
                     >
                         Downloads Standard File
-                    </Button>
+                    </Button> */}
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-28 pt-2 items-center justify-center"></div>
             </div>
