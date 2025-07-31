@@ -381,7 +381,8 @@ const StepperComponent = () => {
   return (
     <FullPageContainer $headerHeight={headerHeight}>
       <StepperSidebar>
-        <h3 style={{ marginBottom: '2rem', color: '#333' }}>Application Steps</h3>
+        
+        <h3 className="font-bold" style={{ marginBottom: '2rem', color: '#333' }}>Application Steps</h3>
         {steps.map((step, index) => (
           <StepItem
             key={index}
