@@ -30,8 +30,7 @@ export const AppStoreProvider = ({ children }) => {
   const [showRemark, setShowRemark] = useState(false);
   const [button, setButton] = useState("");
   const [existingClarifications, setExistingClarifications] = useState([]);
-
-
+  const [miniDrawerComponentOpen, setMiniDrawerComponentOpen] = useState(false);
   const [isFilterActive, setIsFilterActive] = useState(0);
   const [lastFilterColumn, setLastFilterColumn] = useState("");
 
@@ -81,7 +80,8 @@ export const AppStoreProvider = ({ children }) => {
         showRemark, setShowRemark,
         button, setButton,
         existingClarifications, setExistingClarifications,
-        isFilterActive, setIsFilterActive, lastFilterColumn, setLastFilterColumn
+        isFilterActive, setIsFilterActive, lastFilterColumn, setLastFilterColumn,
+        miniDrawerComponentOpen, setMiniDrawerComponentOpen,
       }}
     >
       {children}

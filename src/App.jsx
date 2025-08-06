@@ -12,7 +12,6 @@ import ProtectedRoute from "./Common Components/ProtectedRoute.jsx";
 // import UserManagement from "./Pages/User Management/UserManagement.jsx";
 // import BranchLayout from "./Layout/BranchLayout.jsx";
 import BackOfficeLayout from "./Layout/BackOfficeLayout.jsx";
-import Dashbaord from "./Pages/Dashboard/Dashbaord.jsx";
 import ApprovalHistory from "./Pages/Approval History/ApprovalHistory.jsx";
 import { useContext, useEffect, useRef, useState } from "react";
 // import PreviewMaker from "./Pages/Customer Onboarding/PreviewMaker.jsx";
@@ -20,8 +19,13 @@ import { useKeycloak } from "@react-keycloak/web";
 import { AuthStore } from "./Store/authStore.jsx";
 import WarningPopup from "./Common Components/WarningPopup.jsx";
 import PrintCustomerData from "./Common Components/PrintCustomerData.jsx";
-import BasicDetails from "./Pages/SmsRequest/Components/BasicDetails.jsx";
+import SmsOptInOut from "./Pages/SmsRequest/Pages/SmsOptInOut.jsx";
 import SmsRequest from "./Pages/SmsRequest/SmsRequest.jsx";
+import SmsBlockLift from "./Pages/SmsBlockLift/SmsBlockLift.jsx";
+import PhoneNumberAddition from "./Pages/PhoneNumberAddition/PhoneNumberAddition.jsx";
+import MpinGeneration from "./Pages/MpinGeneration/MpinGeneration.jsx";
+import CustomerRequirementDashboard from "./Pages/CustomerRequirementDashboard/CustomerRequests.jsx";
+import Dashboard from "./Pages/Dashboard/Dashbaord.jsx";
 
 function App() {
   const { keycloak } = useKeycloak();
@@ -133,8 +137,55 @@ function App() {
     // },
 
     // Back Office User
+    // {
+    //   path: "/smsweb/backofficeuser",
+    //   element: (
+    //     <ProtectedRoute layout={BackOfficeLayout}>
+    //       <BackOfficeLayout />
+    //     </ProtectedRoute>
+    //   ),
+    //   children: [
+    //     {
+    //       path: "/smsweb/backofficeuser/taskboard",
+    //       element: <Dashboard />,
+    //     },
+    //     // {
+    //     //   path: "/smsweb/backofficeuser/preview/:clientCode",
+    //     //   element: <PreviewMaker />,
+    //     // },
+    //     // {
+    //     //   path: "/smsweb/backofficeuser/preview/config/:clientCode",
+    //     //   element: <PreviewMaker />,
+    //     // },
+    //     {
+    //       path: "/smsweb/backofficeuser/smsoptinout",
+    //       element: <SmsRequest />,
+    //     },
+    //     {
+    //       path: "/smsweb/backofficeuser/smsblocklift",
+    //       element: <SmsBlockLift />,
+    //     },
+    //     {
+    //       path: "/smsweb/backofficeuser/phonenumberaddition",
+    //       element: <PhoneNumberAddition />,
+    //     },
+    //     {
+    //       path: "/smsweb/backofficeuser/mpingeneration",
+    //       element: <MpinGeneration />,
+    //     },
+    //     {
+    //       path: "/smsweb/backofficeuser/approvalauditlog",
+    //       element: <ApprovalHistory />,
+    //     },
+
+    //     // {
+    //     //   path: "/smsweb/backofficeuser/print",
+    //     //   element: <PrintCustomerData />,
+    //     // },
+    //   ],
+    // },
     {
-      path: "/smsweb/backofficeuser",
+      path: "/smsweb/branchuser",
       element: (
         <ProtectedRoute layout={BackOfficeLayout}>
           <BackOfficeLayout />
@@ -142,28 +193,36 @@ function App() {
       ),
       children: [
         {
-          path: "/smsweb/backofficeuser/taskboard",
-          element: <Dashbaord />,
+          path: "/smsweb/branchuser/customerrequests",
+          element: <CustomerRequirementDashboard />,
         },
-        // {
-        //   path: "/smsweb/backofficeuser/preview/:clientCode",
-        //   element: <PreviewMaker />,
-        // },
-        // {
-        //   path: "/smsweb/backofficeuser/preview/config/:clientCode",
-        //   element: <PreviewMaker />,
-        // },
         {
-          path: "/smsweb/backofficeuser/smsrequest",
+          path: "/smsweb/branchuser/taskboard",
+          element: <Dashboard />,
+        },
+        {
+          path: "/smsweb/branchuser/smsoptinout",
           element: <SmsRequest />,
         },
         {
-          path: "/smsweb/backofficeuser/approvalauditlog",
+          path: "/smsweb/branchuser/smsblocklift",
+          element: <SmsBlockLift />,
+        },
+        {
+          path: "/smsweb/branchuser/phonenumberaddition",
+          element: <PhoneNumberAddition />,
+        },
+        {
+          path: "/smsweb/branchuser/mpingeneration",
+          element: <MpinGeneration />,
+        },
+        {
+          path: "/smsweb/branchuser/approvalauditlog",
           element: <ApprovalHistory />,
         },
 
         // {
-        //   path: "/smsweb/backofficeuser/print",
+        //   path: "/smsweb/branchuser/print",
         //   element: <PrintCustomerData />,
         // },
       ],

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PendingTasks from "./components/PendingTasks.jsx";
 import SearchSetup from "./components/SearchSetup.jsx";
 
-const Dashbaord = () => {
+const Dashboard = () => {
   const [pendingGridApi, setPendingGridApi] = useState(null);
   const [searchGridApi, setSearchGridApi] = useState(null);
 
@@ -35,4 +35,4 @@ const Dashbaord = () => {
   );
 };
 
-export default Dashbaord;
+export default Dashboard;

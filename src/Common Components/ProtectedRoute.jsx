@@ -26,7 +26,7 @@ const ProtectedRoute = ({ children, layout: Layout }) => {
     return children;
   } else if (user.userType === "itSupport" && Layout === ItSupportLayout) {
     return children;
-  } else if (user.userType === "branchMaker" && Layout === BranchLayout) {
+  } else if (user.userType === "branchuser" && Layout === BackOfficeLayout) {
     return children;
   } else if (user.userType === "useradmin" && Layout === ItAdminLayout) {
     return children;

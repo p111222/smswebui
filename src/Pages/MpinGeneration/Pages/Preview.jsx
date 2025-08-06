@@ -1,22 +1,23 @@
 import React, { useContext, useEffect } from 'react'
-import BasicDetails from './BasicDetails'
 import { AppStore } from '../../../Store/appStore'
+import MpinGenerationRequest from './MpinGenerationRequest';
 
 const Preview = () => {
 
-  const {setIsFieldDisabled} = useContext(AppStore);
+  console.log("hellooooooooooo bitchhhhh");
+  
+  const { setIsFieldDisabled } = useContext(AppStore);
 
-  useEffect(()=>{
+  useEffect(() => {
 
     setIsFieldDisabled(true);
 
     return () => setIsFieldDisabled(false);
-  },[])
+  }, [])
 
   return (
     <div>
-      
-    <BasicDetails />
+      <MpinGenerationRequest />
     </div>
   )
 }

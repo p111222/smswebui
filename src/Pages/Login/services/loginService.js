@@ -157,8 +157,17 @@ export const handleOtpSubmit = async (
 };
 
 export const getPage = (page) => {
-  if (page === "SMS Opt-In/Out") {
-    return "smsrequest";
+
+  if (page === "Customer Requests") {
+    return "customerrequests";
+  } else if (page === "SMS Opt-In/Out") {
+    return "smsoptinout";
+  } else if (page === "SMS Block Lift") {
+    return "smsblocklift";
+  } else if (page === "Phone Number Addition") {
+    return "phonenumberaddition";
+  } else if (page === "Mpin Generation") {
+    return "mpingeneration";
   } else if (page === "VA Maintenance") {
     return "vamaintenance";
   } else if (page === "Reconciliation") {
@@ -196,6 +205,9 @@ export const navigateToUserPage = (userType, page, navigate, pwdResetReq) => {
     return;
   }
 
+  console.log("navigatetouserpage function" + userType);
+
+
   switch (userType) {
     case "useradmin":
       navigate(`/smsweb/useradmin/${getPage(page)}`);
@@ -206,8 +218,8 @@ export const navigateToUserPage = (userType, page, navigate, pwdResetReq) => {
     case "itSupport":
       navigate(`/smsweb/itsupport/${getPage(page)}`);
       break;
-    case "branchMaker":
-      navigate(`/smsweb/branchmaker/${getPage(page)}`);
+    case "branchuser":
+      navigate(`/smsweb/branchuser/${getPage(page)}`);
       break;
     case "grievanceRedressal":
       navigate(`/smsweb/grievanceredressal/${getPage(page)}`);

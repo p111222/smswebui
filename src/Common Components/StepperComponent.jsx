@@ -4,7 +4,7 @@
 // // import Preview from "./Preview";
 // import { AuthStore } from "../../../Store/authStore";
 // import { AppStore } from "../../../Store/appStore";
-// import BasicDetails from "./BasicDetails";
+// import SmsOptInOut from "./SmsOptInOut";
 // import FileUpload from "./FileUpload";
 // import Preview from "./Preview";
 
@@ -131,7 +131,7 @@
 
 //   const stepToRender = () => {
 //     if (currentStep == 0) {
-//       return <BasicDetails />;
+//       return <SmsOptInOut />;
 //     } else if (currentStep == 1) {
 //       return <FileUpload />;
 //     } else if (currentStep == 2) {
@@ -181,7 +181,7 @@
 // import { AppStore } from "../../../Store/appStore";
 // import { AuthStore } from "../../../Store/authStore";
 // import { CheckCircle, FiberManualRecord } from "@mui/icons-material";
-// import BasicDetails from "./BasicDetails";
+// import SmsOptInOut from "./SmsOptInOut";
 // import FileUpload from "./FileUpload";
 // import Preview from "./Preview";
 
@@ -259,7 +259,7 @@
 //   const { user } = useContext(AuthStore);
 
 //   const steps = [
-//     { label: "SMS Opt-In/Out", component: <BasicDetails /> },
+//     { label: "SMS Opt-In/Out", component: <SmsOptInOut /> },
 //     { label: "File Upload", component: <FileUpload /> },
 //     { label: "Preview", component: <Preview /> }
 //   ];
@@ -297,12 +297,12 @@
 
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { AppStore } from "../../../Store/appStore";
-import { AuthStore } from "../../../Store/authStore";
+import { AppStore } from "../Store/appStore";
+import { AuthStore } from "../Store/authStore";
 import { CheckCircle, FiberManualRecord } from "@mui/icons-material";
-import BasicDetails from "./BasicDetails";
-import FileUpload from "./FileUpload";
-import Preview from "./Preview";
+import SmsOptInOut from "../Pages/SmsRequest/Pages/SmsOptInOut";
+import FileUpload from "../Pages/SmsRequest/Pages/FileUpload";
+import Preview from "../Pages/SmsRequest/Pages/Preview";
 
 const FullPageContainer = styled.div`
   display: flex;
@@ -368,15 +368,9 @@ const StepIcon = styled.span`
   flex-shrink: 0;
 `;
 
-const StepperComponent = () => {
+const StepperComponent = ({steps}) => {
   const { currentStep, setCurrentStep, headerHeight } = useContext(AppStore);
   const { user } = useContext(AuthStore);
-
-  const steps = [
-    { label: "SMS Opt-In/Out", component: <BasicDetails /> },
-    { label: "File Upload", component: <FileUpload /> },
-    { label: "Preview", component: <Preview /> }
-  ];
 
   return (
     <FullPageContainer $headerHeight={headerHeight}>

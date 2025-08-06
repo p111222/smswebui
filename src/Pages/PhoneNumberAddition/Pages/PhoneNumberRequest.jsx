@@ -16,16 +16,24 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 
 import useAxiosPrivate from "../../../Hooks/useAxiosPrivate";
-import StepperActionButtons from "./StepperActionButtons";
+import StepperActionButtons from "../../../Common Components/StepperActionButtons";
 import { AppStore } from "../../../Store/appStore";
 import { AuthStore } from "../../../Store/authStore";
 
 import validateInputField from "../../../utils/validateInputField";
 import { CONSTANTS } from "../../../utils/constants";
 import { useNavigate } from "react-router-dom";
-import FormControlLabel from '@mui/material/FormControlLabel';
-// import Switch from '@mui/material/Switch';
-const BasicDetails = () => {
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import { Tooltip } from '@mui/material';
+import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
+import PhoneIcon from '@mui/icons-material/Phone';
+import PersonIcon from '@mui/icons-material/Person';
+import EmailIcon from '@mui/icons-material/Email';
+import BadgeIcon from '@mui/icons-material/Badge';
+import AddIcCallIcon from '@mui/icons-material/AddIcCall';
+import RepeatIcon from '@mui/icons-material/Repeat';
+
+const PhoneNumberRequest = () => {
 
     const {
         currentStep,
@@ -50,6 +58,9 @@ const BasicDetails = () => {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [primaryEmail, setPrimaryEmail] = useState("");
     const [fieldErrors, setFieldErrors] = useState(null);
+    const [additionalPhoneNumber, setAdditionalPhoneNumber] = useState();
+    const [retypedPhoneNumber, setRetypedPhoneNumber] = useState();
+
 
     // Scroll to error Ref
     const customerIdRef = useRef(null)
@@ -57,6 +68,11 @@ const BasicDetails = () => {
     const phoneNumberRef = useRef(null)
     const navigate = useNavigate();
 
+    const STEPS = [
+        "Phone Number Addition",
+        "File Upload",
+        "Preview"
+    ]
 
     const handleNextClick = async () => {
 
@@ -108,12 +124,12 @@ const BasicDetails = () => {
 
         // scrollToError(err, customerIdRef, emailIDRef, clientCodeRef, masterAccRef)
 
-    setCurrentStep(prev => prev+1)
+        setCurrentStep(prev => prev + 1)
 
     };
 
-
     return (
+
         <div className="print:break-before-page print:text-sm">
             <Card
                 sx={{
@@ -128,7 +144,7 @@ const BasicDetails = () => {
                                 id="paramter"
                                 className="font-semibold text-lg bg-gray-200 text-black-800 px-3 py-[6px] rounded-full inline-block"
                             >
-                                SMS Opt-In/Out
+                                Phone Number Addition
                             </p>
                         </div>
                     </div>
@@ -202,12 +218,28 @@ const BasicDetails = () => {
                                     />
                                 </div>
                             </div>
-                            <div className="grid grid-cols-1 items-center md:grid-cols-2 gap-x-5">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5">
                                 <div className="mb-4">
-                                    <label className="font-semibold text-sm text-neutral-500">
-                                        Email ID
-                                    </label>
-                                    {!isFieldDisabled && <span className="text-red-500 ml-1">*</span>}
+                                    <div className="flex items-center">
+                                        <label className="font-semibold text-sm text-neutral-500">
+                                            Email ID
+                                        </label>
+                                        {!isFieldDisabled && (
+                                            <>
+                                                <span className="text-red-500 ml-1">*</span>
+                                                <Tooltip title="Please enter corporate emails only" arrow>
+                                                    <InfoOutlinedIcon
+                                                        sx={{
+                                                            color: "#64748B",
+                                                            fontSize: "16px",
+                                                            marginLeft: "4px",
+                                                            cursor: "pointer"
+                                                        }}
+                                                    />
+                                                </Tooltip>
+                                            </>
+                                        )}
+                                    </div>
                                     <Input
                                         autoComplete="off"
                                         ref={emailIDRef}
@@ -253,14 +285,6 @@ const BasicDetails = () => {
                                         </p>
                                     )}
                                 </div>
-                                {!isFieldDisabled && <div className="py-2 flex print:hidden">
-                                    <p className="text-red-500 text-sm  font-bold p-1 rounded-md">
-                                        Please enter corporate emails only
-                                    </p>
-                                    <span className="text-red-500 ml-1">*</span>
-                                </div>}
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5">
                                 <div className="mb-4">
                                     <label className="font-semibold text-sm text-neutral-500">
                                         Customer ID
@@ -299,8 +323,6 @@ const BasicDetails = () => {
                                             "& input::placeholder": { fontSize: "14px" },
                                             backgroundColor: "#F1F4F8",
                                         }}
-
-                                    // endDecorator={}
                                     />
                                     {fieldErrors && fieldErrors.custId && customerId.length === 0 && (
                                         <p className="text-red-500 text-sm mt-1">
@@ -308,23 +330,74 @@ const BasicDetails = () => {
                                         </p>
                                     )}
                                 </div>
-                                <div className="">
-
-                                    <div className="flex flex-column">
-                                        <label className="font-semibold text-sm text-neutral-500">
-                                            SMS Opt In
-                                        </label>
-                                    </div>
-                                    <div className="flex justify-start">
-
-                                        <FormControlLabel 
-                                        disabled={isFieldDisabled} 
-                                        control={<Switch defaultChecked />} />
-                                    </div>
-                                </div>
-
                             </div>
-
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5">
+                                <div className="mb-4">
+                                    <label className="font-semibold text-sm text-neutral-500">
+                                        Additional Phone Number
+                                    </label>
+                                    {!isFieldDisabled && <span className="text-red-500 ml-1">*</span>}
+                                    <Input
+                                        autoComplete="off"
+                                        variant="soft"
+                                        placeholder="Enter 10-digit Additional Phone Number"
+                                        className="w-full mt-1"
+                                        type="tel"
+                                        value={additionalPhoneNumber}
+                                        disabled={isFieldDisabled}
+                                        onChange={(e) => {
+                                            const inputValue = e.target.value;
+                                            const digitsOnly = inputValue.replace(/\D/g, '');
+                                            const truncatedValue = digitsOnly.slice(0, 10);
+                                            setAdditionalPhoneNumber(truncatedValue);
+                                        }}
+                                        sx={{
+                                            "& input::placeholder": { fontSize: "14px" },
+                                            backgroundColor: "#F1F4F8",
+                                        }}
+                                    />
+                                </div>
+                                <div className="mb-4">
+                                    <label className="font-semibold text-sm text-neutral-500">
+                                        Retype Phone Number
+                                    </label>
+                                    {!isFieldDisabled && <span className="text-red-500 ml-1">*</span>}
+                                    <Input
+                                        autoComplete="off"
+                                        variant="soft"
+                                        placeholder="Retype 10-digit Phone Number"
+                                        className="w-full mt-1"
+                                        type="tel"
+                                        value={retypedPhoneNumber}
+                                        disabled={isFieldDisabled}
+                                        onChange={(e) => {
+                                            const inputValue = e.target.value;
+                                            const digitsOnly = inputValue.replace(/\D/g, '');
+                                            const truncatedValue = digitsOnly.slice(0, 10);
+                                            setRetypedPhoneNumber(truncatedValue);
+                                        }}
+                                        sx={{
+                                            "& input::placeholder": { fontSize: "14px" },
+                                            backgroundColor: "#F1F4F8",
+                                        }}
+                                        endDecorator={
+                                            (additionalPhoneNumber && retypedPhoneNumber) && (
+                                                <InputAdornment position="end">
+                                                    {additionalPhoneNumber === retypedPhoneNumber ?
+                                                        <CheckCircleIcon sx={{ color: "green" }} /> :
+                                                        <CancelIcon sx={{ color: "#ef4444" }} />
+                                                    }
+                                                </InputAdornment>
+                                            )
+                                        }
+                                    />
+                                    {additionalPhoneNumber && retypedPhoneNumber && additionalPhoneNumber !== retypedPhoneNumber && (
+                                        <p className="text-red-500 text-sm mt-1">
+                                            Phone numbers do not match
+                                        </p>
+                                    )}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="mt-4 w-full lg:w-2/3">
@@ -333,11 +406,15 @@ const BasicDetails = () => {
             </Card>
             {
                 currentStep !== 4 && (
-                    <StepperActionButtons handleNextClick={handleNextClick} />
+                    <StepperActionButtons
+                        STEPS={STEPS}
+                        handleNextClick={handleNextClick}
+                    />
                 )
             }
-        </div >
+        </div>
+
     )
 }
 
-export default BasicDetails
+export default PhoneNumberRequest
