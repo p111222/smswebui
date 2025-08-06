@@ -34,8 +34,9 @@ const Login = () => {
 
     if (keycloak.authenticated) {
       const { payload } = decodeJWT(keycloak.token);
-      const sortedArr = ["Task Board","SMS Opt-In/Out","Approval Audit Log"];
+      const sortedArr = [ "Customer Requests", "Task Board","SMS Opt-In/Out", "SMS Block Lift" , "Phone Number Addition" , "Mpin Generation" ,"Approval Audit Log"];
       console.log(payload);
+      console.log(payload.realm_access.roles[0]);
       
 
       const userPayload = {
@@ -43,7 +44,7 @@ const Login = () => {
         sessionId: payload.sid,
         userName: payload.name,
         userEmail: payload.email,
-        userType: "backOfficeUser",
+        userType: payload.realm_access.roles[0],
         lastLogin: moment.unix(payload.auth_time).format("DD-MM-YYYY HH:mm:ss"),
         pageAccess: sortedArr
       };
@@ -54,7 +55,7 @@ const Login = () => {
       setAccessToken(keycloak.token);
 
       navigateToUserPage(
-        "backOfficeUser",
+        payload.realm_access.roles[0],
         sortedArr[0],
         navigate
       );

@@ -6,20 +6,26 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import UploadFileSection from "../Components/UploadFileSection";
 import { useContext, useEffect } from "react";
 import { AuthStore } from "../../../Store/authStore";
-import StepperActionButtons from './StepperActionButtons';
+import StepperActionButtons from '../../../Common Components/StepperActionButtons';
 import { AppStore } from '../../../Store/appStore';
 
 const FileUpload = () => {
   const { user } = useContext(AuthStore)
-  const {currentStep, setCurrentStep} = useContext(AppStore);
+  const { currentStep, setCurrentStep } = useContext(AppStore);
 
-  const handleNextClick = () =>{
-    setCurrentStep(prev => prev + 1) ;
+  const handleNextClick = () => {
+    setCurrentStep(prev => prev + 1);
   }
 
   useEffect(() => {
     window.scroll(0, 0)
   }, [])
+
+  const STEPS = [
+    "Phone Number Addition",
+    "File Upload",
+    "Preview"
+  ]
 
   return (
     <>
@@ -36,7 +42,7 @@ const FileUpload = () => {
       </Card>
       {
         currentStep !== 4 && (
-          <StepperActionButtons handleNextClick={handleNextClick} />
+          <StepperActionButtons handleNextClick={handleNextClick} STEPS={STEPS} />
         )
       }
     </>

@@ -13,11 +13,25 @@ import InfoIcon from "@mui/icons-material/Info";
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import SmsIcon from '@mui/icons-material/Sms';
 import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
+import BlockIcon from '@mui/icons-material/Block';
+import AddIcCallIcon from '@mui/icons-material/AddIcCall';
+import PasswordIcon from '@mui/icons-material/Password';
+import PinIcon from '@mui/icons-material/Pin';
+import PendingActionsIcon from '@mui/icons-material/PendingActions';
 
 // Get Link Icon Function
 const getLinkIcon = (linkname) => {
-  if (linkname === "SMS Opt-In/Out") {
+
+  if (linkname === "Customer Requests") {
+    return <PendingActionsIcon />;
+  } else if (linkname === "SMS Opt-In/Out") {
     return <SmsIcon />;
+  } else if (linkname === "SMS Block Lift") {
+    return <BlockIcon />;
+  } else if (linkname === "Phone Number Addition") {
+    return <AddIcCallIcon />;
+  } else if (linkname === "Mpin Generation") {
+    return <PinIcon />;
   } else if (linkname === "VA Maintenance") {
     return <SettingsIcon />;
   } else if (linkname === "Reconciliation") {
@@ -49,7 +63,7 @@ const getLinkIcon = (linkname) => {
   } else if (linkname === "Grievance Redressal") {
     return <InfoIcon />;
   } else {
-    return null; 
+    return null;
   }
 };
 

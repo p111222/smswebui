@@ -11,8 +11,8 @@ const getLink = (userType, page) => {
       return `/smsweb/backofficeuser/${getPage(page)}`;
     case "itSupport":
       return `/smsweb/itsupport/${getPage(page)}`;
-    case "branchMaker":
-      return `/smsweb/branchmaker/${getPage(page)}`;
+    case "branchuser":
+      return `/smsweb/branchuser/${getPage(page)}`;
     case "corporateUsers":
       return `/smsweb/corporateusers/${getPage(page)}`;
     case "corporateUserAdmin":

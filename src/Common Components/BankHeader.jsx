@@ -267,19 +267,93 @@
 // };
 
 // export default BankHeader;
-import React, { useContext } from "react";
-import FederalBankLogo from "../assets/siblogo.png";
+import React, { useContext, useState } from "react";
+// import SibLogo from "../assets/siblogo.png";
+// import SibLogo from "../assets/sib_logo.png";
+import SibLogo from "../assets/sibLogo.png";
 import { useKeycloak } from "@react-keycloak/web";
 import { AuthStore } from "../Store/authStore.jsx";
 import { AppStore } from "../Store/appStore.jsx";
 import Loader from "./Loader";
 import Toastify from "./Toastify";
 import LogoutIcon from "@mui/icons-material/Logout";
+import UserDetailsModal from "./UserDetailsModal.jsx";
+
+// const BankHeader = () => {
+//   const { user, setUser } = useContext(AuthStore);
+//   const { setLoading } = useContext(AppStore);
+//   const { keycloak } = useKeycloak();
+
+//   const handleLogout = () => {
+//     setLoading(true);
+//     keycloak.logout();
+//     setUser(null);
+//   };
+
+//   // const getRole = (userType) => {
+//   //   const roles = {
+//   //     useradmin: "Admin",
+//   //     backOfficeUser: "Back Office",
+//   //     grievanceRedressal: "Grievance",
+//   //     itSupport: "IT Support",
+//   //     branchMaker: "Branch"
+//   //   };
+//   //   return roles[userType] || userType;
+//   // };
+
+//   return (
+//     <div className="relative">
+//       <div className="flex justify-between items-center py-2 px-4 bg-white border-b border-gray-100">
+//         <div>
+//           <img
+//             src={FederalBankLogo}
+//             alt="Federal Bank Logo"
+//             className="w-36"
+//           />
+//         </div>
+
+//         {user ? (
+//           <div className="flex items-center gap-3">
+//             {/* Compact User Details Box */}
+//             <div className="border border-[rgb(100,15,10)] rounded-md px-3 py-2 bg-white shadow-xs">
+//               <div className="flex flex-col gap-0.5">
+//                 <div className="text-sm font-semibold text-[rgb(100,15,10)] truncate max-w-[120px]">
+//                   {user.userName || "User"}
+//                 </div>
+//                 <div className="text-[12px] text-gray-600 leading-tight">
+//                   {user.lastLogin && `Login: ${user.lastLogin}`}
+//                   {/* {user.userType && ` • ${getRole(user.userType)}`} */}
+//                   {user.userType && ` • ${user.userType}`}
+//                 </div>
+//               </div>
+//             </div>
+
+//             {/* Elegant Logout Button */}
+//             <button 
+//               onClick={handleLogout}
+//               className="border cursor-pointer border-[rgb(100,15,10)] text-[rgb(100,15,10)] rounded-md px-3 py-1.5 flex items-center gap-1 hover:bg-[rgb(100,15,10)] hover:text-white transition-all duration-200"
+//             >
+//               <LogoutIcon className="!text-xs" />
+//               <span className="text-sm">Logout</span>
+//             </button>
+//           </div>
+//         ) : null}
+//       </div>
+
+//       <Loader />
+//       <Toastify />
+//     </div>
+//   );
+// };
+
+// export default BankHeader;
+
 
 const BankHeader = () => {
   const { user, setUser } = useContext(AuthStore);
   const { setLoading } = useContext(AppStore);
   const { keycloak } = useKeycloak();
+  const [modalOpen, setModalOpen] = useState(false);
 
   const handleLogout = () => {
     setLoading(true);
@@ -287,45 +361,37 @@ const BankHeader = () => {
     setUser(null);
   };
 
-  const getRole = (userType) => {
-    const roles = {
-      useradmin: "Admin",
-      backOfficeUser: "Back Office",
-      grievanceRedressal: "Grievance",
-      itSupport: "IT Support",
-      branchMaker: "Branch"
-    };
-    return roles[userType] || userType;
-  };
-
   return (
     <div className="relative">
       <div className="flex justify-between items-center py-2 px-4 bg-white border-b border-gray-100">
         <div>
           <img
-            src={FederalBankLogo}
-            alt="Federal Bank Logo"
+            src={SibLogo}
+            alt="SIB Logo"
             className="w-36"
           />
         </div>
 
         {user ? (
           <div className="flex items-center gap-3">
-            {/* Compact User Details Box */}
-            <div className="border border-[rgb(100,15,10)] rounded-md px-3 py-2 bg-white shadow-xs">
+            {/* User Details with Hover Effect */}
+            <div
+              onClick={() => setModalOpen(true)}
+              className="border border-[rgb(100,15,10)] rounded-md px-3 py-2 bg-white shadow-xs cursor-pointer hover:bg-[rgb(100,15,10)] hover:text-white transition-all duration-200 group"
+            >
               <div className="flex flex-col gap-0.5">
-                <div className="text-sm font-semibold text-[rgb(100,15,10)] truncate max-w-[120px]">
+                <div className="text-sm font-semibold text-[rgb(100,15,10)] truncate max-w-[120px] group-hover:text-white">
                   {user.userName || "User"}
                 </div>
-                <div className="text-[12px] text-gray-600 leading-tight">
+                <div className="text-[12px] text-gray-600 leading-tight group-hover:text-white">
                   {user.lastLogin && `Login: ${user.lastLogin}`}
-                  {user.userType && ` • ${getRole(user.userType)}`}
+                  {user.userType && ` • ${user.userType}`}
                 </div>
               </div>
             </div>
 
-            {/* Elegant Logout Button */}
-            <button 
+            {/* Logout Button */}
+            <button
               onClick={handleLogout}
               className="border cursor-pointer border-[rgb(100,15,10)] text-[rgb(100,15,10)] rounded-md px-3 py-1.5 flex items-center gap-1 hover:bg-[rgb(100,15,10)] hover:text-white transition-all duration-200"
             >
@@ -335,6 +401,15 @@ const BankHeader = () => {
           </div>
         ) : null}
       </div>
+
+      {/* User Details Modal */}
+      {user && (
+        <UserDetailsModal
+          user={user}
+          open={modalOpen}
+          onClose={() => setModalOpen(false)}
+        />
+      )}
 
       <Loader />
       <Toastify />

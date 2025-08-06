@@ -436,7 +436,7 @@
 
 import React, { useContext } from 'react';
 import { Button } from "@mui/material";
-import { AppStore } from '../../../Store/appStore';
+import { AppStore } from '../Store/appStore';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'; 
@@ -480,15 +480,13 @@ const FloatingButton = styled(Button)`
   }
 `;
 
-const STEPS = [
-  "SMS Opt-In/Out",
-  "File Upload",
-  "Preview"
-];
 
-const StepperActionButtons = ({ handleNextClick }) => {
+const StepperActionButtons = ({ STEPS, handleNextClick }) => {
   const { currentStep, setCurrentStep } = useContext(AppStore);
   const location = useLocation();
+
+  console.log("Steps"+STEPS);
+  
 
   if (location.pathname.includes("preview")) return null;
 
