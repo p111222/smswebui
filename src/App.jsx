@@ -27,6 +27,7 @@ import MpinGeneration from "./Pages/MpinGeneration/MpinGeneration.jsx";
 import CustomerRequirementDashboard from "./Pages/CustomerRequirementDashboard/CustomerRequests.jsx";
 import Dashboard from "./Pages/Dashboard/Dashbaord.jsx";
 import SmsViewLog from "./Pages/SmsViewLog/SmsViewLog.jsx";
+import CustomerApprovedRecords from "./Pages/Customer Approved Records/CustomerApprovedRecords.jsx";
 
 function App() {
   const { keycloak } = useKeycloak();
@@ -216,6 +217,10 @@ function App() {
         {
           path: "/smsweb/branchuser/mpingeneration",
           element: <MpinGeneration />,
+        },
+        {
+          path: "/smsweb/branchuser/customerapprovedrecords",
+          element: <CustomerApprovedRecords />,
         },
         {
           path: "/smsweb/branchuser/approvalauditlog",

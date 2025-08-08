@@ -25,12 +25,12 @@ const Dashboard = () => {
           setPendingGridApi={setPendingGridApi}
         />
       </div>
-      <div className="mt-5">
+      {/* <div className="mt-5">
         <SearchSetup
           searchGridApi={searchGridApi}
           setSearchGridApi={setSearchGridApi}
         />
-      </div>
+      </div> */}
     </div>
   );
 };

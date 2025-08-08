@@ -162,7 +162,9 @@ export const getPage = (page) => {
     return "customerrequests";
   } else if (page === "SMS Opt-In/Out") {
     return "smsoptinout";
-  } else if (page === "SMS Block Lift") {
+  }else if (page === "Customer Approved Records") {
+    return "customerapprovedrecords";
+  }else if (page === "SMS Block Lift") {
     return "smsblocklift";
   } else if (page === "Phone Number Addition") {
     return "phonenumberaddition";

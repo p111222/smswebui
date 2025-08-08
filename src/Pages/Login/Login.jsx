@@ -34,10 +34,10 @@ const Login = () => {
 
     if (keycloak.authenticated) {
       const { payload } = decodeJWT(keycloak.token);
-      const sortedArr = [ "Customer Requests", "Task Board","SMS Opt-In/Out", "SMS Block Lift" , "Phone Number Addition" , "Mpin Generation" ,"Approval Audit Log", "SMS View Log"];
+      const sortedArr = ["Customer Requests", "Task Board", "SMS Opt-In/Out", "SMS Block Lift", "Phone Number Addition", "Mpin Generation", "Approval Audit Log", "SMS View Log", "Customer Approved Records"];
       console.log(payload);
       console.log(payload.realm_access.roles[0]);
-      
+
 
       const userPayload = {
         id: payload.sub,
@@ -49,8 +49,8 @@ const Login = () => {
         pageAccess: sortedArr
       };
 
-	console.log(userPayload);
-	    
+      console.log(userPayload);
+
       setUser(userPayload);
       setAccessToken(keycloak.token);
 

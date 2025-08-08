@@ -67,7 +67,8 @@ const SmsRequestBanner = () => {
           )}
         </div>
         {currentStep === 4 &&
-          window.location.pathname.includes("smsrequest") && (
+          // window.location.pathname.includes("smsrequest") && (
+            window.location.pathname.includes("smsrequest-home") && (
             <div className="flex gap-x-2">
               <Button
                 className="stepper"

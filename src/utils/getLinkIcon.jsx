@@ -19,6 +19,8 @@ import PasswordIcon from '@mui/icons-material/Password';
 import PinIcon from '@mui/icons-material/Pin';
 import PendingActionsIcon from '@mui/icons-material/PendingActions';
 import BookIcon from '@mui/icons-material/Book';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import ChecklistIcon from '@mui/icons-material/Checklist';
 
 // Get Link Icon Function
 const getLinkIcon = (linkname) => {
@@ -35,6 +37,8 @@ const getLinkIcon = (linkname) => {
     return <PinIcon />;
   } else if (linkname === "SMS View Log") {
     return <BookIcon />;
+  } else if (linkname === "Customer Approved Records") {
+    return <ChecklistIcon />;
   } else if (linkname === "VA Maintenance") {
     return <SettingsIcon />;
   } else if (linkname === "Reconciliation") {
