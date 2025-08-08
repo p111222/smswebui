@@ -18,6 +18,7 @@ import AddIcCallIcon from '@mui/icons-material/AddIcCall';
 import PasswordIcon from '@mui/icons-material/Password';
 import PinIcon from '@mui/icons-material/Pin';
 import PendingActionsIcon from '@mui/icons-material/PendingActions';
+import BookIcon from '@mui/icons-material/Book';
 
 // Get Link Icon Function
 const getLinkIcon = (linkname) => {
@@ -32,6 +33,8 @@ const getLinkIcon = (linkname) => {
     return <AddIcCallIcon />;
   } else if (linkname === "Mpin Generation") {
     return <PinIcon />;
+  } else if (linkname === "SMS View Log") {
+    return <BookIcon />;
   } else if (linkname === "VA Maintenance") {
     return <SettingsIcon />;
   } else if (linkname === "Reconciliation") {

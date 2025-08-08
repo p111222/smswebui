@@ -26,6 +26,7 @@ import PhoneNumberAddition from "./Pages/PhoneNumberAddition/PhoneNumberAddition
 import MpinGeneration from "./Pages/MpinGeneration/MpinGeneration.jsx";
 import CustomerRequirementDashboard from "./Pages/CustomerRequirementDashboard/CustomerRequests.jsx";
 import Dashboard from "./Pages/Dashboard/Dashbaord.jsx";
+import SmsViewLog from "./Pages/SmsViewLog/SmsViewLog.jsx";
 
 function App() {
   const { keycloak } = useKeycloak();
@@ -219,6 +220,10 @@ function App() {
         {
           path: "/smsweb/branchuser/approvalauditlog",
           element: <ApprovalHistory />,
+        },
+        {
+          path: "/smsweb/branchuser/smsviewlog",
+          element: <SmsViewLog />,
         },
 
         // {

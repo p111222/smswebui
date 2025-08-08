@@ -125,6 +125,13 @@ const CustomerRequests = () => {
             icon: "🔑",
             color: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
             path: "/smsweb/branchuser/mpingeneration"
+        },
+        {
+            title: "SMS VIew Log",
+            description: "View the sms logs here",
+            icon: "📨",
+            color: "linear-gradient(135deg, #f6d365 0%, #fda085 100%)",
+            path: "/smsweb/branchuser/smsviewlog"
         }
     ];
 
