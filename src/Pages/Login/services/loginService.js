@@ -168,6 +168,8 @@ export const getPage = (page) => {
     return "phonenumberaddition";
   } else if (page === "Mpin Generation") {
     return "mpingeneration";
+  } else if (page === "SMS View Log") {
+    return "smsviewlog";
   } else if (page === "VA Maintenance") {
     return "vamaintenance";
   } else if (page === "Reconciliation") {

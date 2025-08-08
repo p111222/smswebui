@@ -34,7 +34,7 @@ const Login = () => {
 
     if (keycloak.authenticated) {
       const { payload } = decodeJWT(keycloak.token);
-      const sortedArr = [ "Customer Requests", "Task Board","SMS Opt-In/Out", "SMS Block Lift" , "Phone Number Addition" , "Mpin Generation" ,"Approval Audit Log"];
+      const sortedArr = [ "Customer Requests", "Task Board","SMS Opt-In/Out", "SMS Block Lift" , "Phone Number Addition" , "Mpin Generation" ,"Approval Audit Log", "SMS View Log"];
       console.log(payload);
       console.log(payload.realm_access.roles[0]);
       
