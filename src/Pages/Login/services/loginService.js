@@ -158,13 +158,13 @@ export const handleOtpSubmit = async (
 
 export const getPage = (page) => {
 
-  if (page === "Customer Requests") {
-    return "customerrequests";
+  if (page === "Add To Favourites") {
+    return "addtofavourites";
   } else if (page === "SMS Opt-In/Out") {
     return "smsoptinout";
-  }else if (page === "Customer Approved Records") {
+  } else if (page === "Customer Approved Records") {
     return "customerapprovedrecords";
-  }else if (page === "SMS Block Lift") {
+  } else if (page === "SMS Block Lift") {
     return "smsblocklift";
   } else if (page === "Phone Number Addition") {
     return "phonenumberaddition";
@@ -210,7 +210,6 @@ export const navigateToUserPage = (userType, page, navigate, pwdResetReq) => {
   }
 
   console.log("navigatetouserpage function" + userType);
-
 
   switch (userType) {
     case "useradmin":

@@ -6,6 +6,7 @@ import { AuthStoreProvider } from "./Store/authStore.jsx";
 import { AppStoreProvider } from "./Store/appStore.jsx";
 import { ReactKeycloakProvider } from "@react-keycloak/web";
 import keycloak from "./keycloak/keycloak.jsx";
+import { FavoritesProvider } from "./Store/FavoritesContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   // <StrictMode>
@@ -17,11 +18,13 @@ createRoot(document.getElementById("root")).render(
       checkLoginIframe: false, // Disable iframe check to avoid issues
     }}
   >
-      <AuthStoreProvider>
-        <AppStoreProvider>
+    <AuthStoreProvider>
+      <AppStoreProvider>
+        <FavoritesProvider>
           <App />
-        </AppStoreProvider>
-      </AuthStoreProvider>
+        </FavoritesProvider>
+      </AppStoreProvider>
+    </AuthStoreProvider>
   </ReactKeycloakProvider>
   // </StrictMode>
 );

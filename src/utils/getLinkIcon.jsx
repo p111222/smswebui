@@ -21,19 +21,23 @@ import PendingActionsIcon from '@mui/icons-material/PendingActions';
 import BookIcon from '@mui/icons-material/Book';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import ChecklistIcon from '@mui/icons-material/Checklist';
+import StarIcon from '@mui/icons-material/Star';
 
 // Get Link Icon Function
 const getLinkIcon = (linkname) => {
 
-  if (linkname === "Customer Requests") {
-    return <PendingActionsIcon />;
+  console.log("linkname"+linkname);
+  
+
+  if (linkname === "Add To Favourites") {
+    return <StarIcon />;
   } else if (linkname === "SMS Opt-In/Out") {
     return <SmsIcon />;
   } else if (linkname === "SMS Block Lift") {
     return <BlockIcon />;
   } else if (linkname === "Phone Number Addition") {
     return <AddIcCallIcon />;
-  } else if (linkname === "Mpin Generation") {
+  } else if (linkname === "MPIN Generation") {
     return <PinIcon />;
   } else if (linkname === "SMS View Log") {
     return <BookIcon />;

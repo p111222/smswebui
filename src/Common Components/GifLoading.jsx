@@ -1,24 +1,48 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
-import loader from "../assets/loader.gif"
-import bgImage from "../assets/BG-03.jpg"
+import { AppStore } from "../Store/appStore.jsx";
+import { spinnerImageData } from '../utils/imageBase64Data.js';
+import "./Loader.css";
 
 const GifLoading = () => {
+
+    const { loading } = useContext(AppStore);
+    console.log("loading"+loading);
+
+    if (!loading) return null;
+
     return (
-        <div>
-            <div
-                // style={{
-                //     backgroundImage: `url(${bgImage})`,
-                //     backgroundPosition: "center",
-                //     backgroundRepeat: "no-repeat",
-                //     backgroundSize: "cover",
-                //     backgroundAttachment: "fixed"
-                // }}
-                className={`w-full h-screen fixed top-0  left-0 z-[10000] bg-white flex 
-              items-center justify-center`}
+        <div className="loader-container">
+            <svg
+                className="spinning-loader"
+                width="903"
+                height="873"
+                viewBox="0 0 903 873"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
             >
-                <img className="w-28 h-28" src={loader} alt="loading..." />
-            </div>
+                <rect y="-30" width="903" height="903" fill="url(#pattern0_30_56)" />
+                <defs>
+                    <pattern
+                        id="pattern0_30_56"
+                        patternContentUnits="objectBoundingBox"
+                        width="1"
+                        height="1"
+                    >
+                        <use
+                            xlinkHref="#image0_30_56"
+                            transform="scale(0.000976562)"
+                        />
+                    </pattern>
+                    <image
+                        id="image0_30_56"
+                        width="1024"
+                        height="1024"
+                        preserveAspectRatio="none"
+                        xlinkHref={spinnerImageData}
+                    />
+                </defs>
+            </svg>
         </div>
     )
 }

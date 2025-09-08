@@ -24,7 +24,7 @@ import SmsRequest from "./Pages/SmsRequest/SmsRequest.jsx";
 import SmsBlockLift from "./Pages/SmsBlockLift/SmsBlockLift.jsx";
 import PhoneNumberAddition from "./Pages/PhoneNumberAddition/PhoneNumberAddition.jsx";
 import MpinGeneration from "./Pages/MpinGeneration/MpinGeneration.jsx";
-import CustomerRequirementDashboard from "./Pages/CustomerRequirementDashboard/CustomerRequests.jsx";
+import AddToFavourites from "./Pages/AddToFavourites/AddToFavourites.jsx";
 import Dashboard from "./Pages/Dashboard/Dashbaord.jsx";
 import SmsViewLog from "./Pages/SmsViewLog/SmsViewLog.jsx";
 import CustomerApprovedRecords from "./Pages/Customer Approved Records/CustomerApprovedRecords.jsx";
@@ -195,8 +195,8 @@ function App() {
       ),
       children: [
         {
-          path: "/smsweb/branchuser/customerrequests",
-          element: <CustomerRequirementDashboard />,
+          path: "/smsweb/branchuser/addtofavourites",
+          element: <AddToFavourites />,
         },
         {
           path: "/smsweb/branchuser/taskboard",

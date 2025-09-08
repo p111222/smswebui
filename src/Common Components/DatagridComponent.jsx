@@ -51,8 +51,6 @@ const DatagridComponent = ({
     resizable: false,
   };
 
-
-
   const onCellValueChanged = (event) => {
     console.log("*****/*", event);
 
@@ -73,7 +71,6 @@ const DatagridComponent = ({
       setCsvData(updatedVaData);
     }
   };
-
 
   const gridOptions = {
     paginationPageSize: 20,
@@ -135,7 +132,7 @@ const DatagridComponent = ({
           defaultColDef={defaultColDef}
           suppressMovableColumns={true}
           gridOptions={{
-            ...gridOptions,
+            ...gridOptions, 
             pagination: false,
             enableCellTextSelection:true,
             onTooltipShow:true

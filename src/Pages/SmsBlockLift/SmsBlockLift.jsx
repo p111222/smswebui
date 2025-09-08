@@ -16,7 +16,7 @@ const SmsBlockLift = () => {
     
       useEffect(() => {
         return () => {
-          localStorage.clear()
+          // localStorage.clear()
           setBannerPhoneNumber("")
           setBannerCustID("")
           setBannerCustName("")

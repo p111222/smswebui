@@ -16,7 +16,7 @@ const MpinGeneration = () => {
 
     useEffect(() => {
         return () => {
-            localStorage.clear()
+            // localStorage.clear()
             setBannerPhoneNumber("")
             setBannerCustID("")
             setBannerCustName("")
